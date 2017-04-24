@@ -46,7 +46,7 @@ SUNDE是一类基于虚拟机和VNC的云操作系统硬软件的解决方案。
 
 AntOS采用了分布式、易部署的后台设计。整体的设计如下：
 
-![](./pic/AntOS-Design.png)
+![](http://ww3.sinaimg.cn/large/006tKfTcly1fextry4aopj30pw0wsq7k.jpg)
 
 整个AntOS的后台采用的是分布式的设计，一共有四种服务器：集群控制服务器、Sql服务器、Web服务器、软件提供服务器、灾备服务器。Web服务器接受用户的访问，向外提供一个网页，接收用户有关于软件安装、删除、整理的请求，用户对于软件的管理也是集中在这个WebApp上。
 
@@ -54,7 +54,7 @@ AntOS采用了分布式、易部署的后台设计。整体的设计如下：
 
 AntOS的客户端主要由一个比较低廉的硬件和一个轻量的操作系统组成。整个客户端的结构如下：
 
-![](./pic/AntOS-Client.png)
+![](http://ww4.sinaimg.cn/large/006tKfTcly1fextrvr9klj30bu04rjrl.jpg)
 
 整个客户端包括一个轻量而低廉的硬件，一个简单的Linux内核，以及有关于Qt、Python以及X11 server的依赖。Qt interface application是一个简易的浏览器程序，我们基于Chromium内核制作了一个简易的浏览器程序（去地址栏，去关闭按钮，全屏，开机自启动），Qt interface application是构成AntOS图形界面的重要部分。Python deamon是一个在客户端后台运行的监控程序，负责公钥的传输以及对X11 server进行相应的控制。X11 server主要负责指令的解析。
 
@@ -74,7 +74,7 @@ AntOS的服务器分为5个部分：
 
 软件提供服务器是AntOS所提供服务的核心，他的结构如下：
 
-![](pic/AntOS-SoftwareServer.png)
+![](http://ww4.sinaimg.cn/large/006tKfTcly1fextrtdjj6j30bv076jrw.jpg)
 
 
 
@@ -88,35 +88,35 @@ AntOS主要有这么几个功能点。我们将以用户的一个使用周期为
 
 当用户开启AntOS的硬件的时候，Qt程序会直接开启，作为初始的图形界面存在。这个Qt制作的全屏浏览器在开启之后会访问Web服务器，产生一个登录界面。
 
-![](pic/AntOS-Login.png)
+![](http://ww1.sinaimg.cn/large/006tKfTcly1fextrrk5dmj31840x6qbi.jpg)
 
 如果用户没有注册过，AntOS还提供一个注册界面，点击“Sign Up”就可以进入。
 
-![](pic/AntOS-SignUp.png)
+![](http://ww1.sinaimg.cn/large/006tKfTcly1fextrpcyjyj318c0x4wn1.jpg)
 
 ### 4.2、概览与软件选择
 
 当用户成功登陆的时候。我们会进入概览界面。概览界面可以查看当前系统的基本信息。用户可以看到账号当前状态、服务器状态、系统状态。
 
-![](pic/AntOS-Overview.png)
+![](http://ww2.sinaimg.cn/large/006tKfTcly1fextrq4n3cj318c0xcjvh.jpg)
 
 AntOS提供查看登陆归属地的功能，并且会检测异地登录，保护账号安全。此外用户可以看到当前服务器的状态。AntOS的顶栏有“Home”、“My Software”、“Recommendation”三个板块。用户可以进行点击进入对应的板块。
 
 当用户点击了“My Software”，用户就可以看到他所拥有的所有软件。
 
-![](pic/AntOS-Software.png)
+![](http://ww2.sinaimg.cn/large/006tKfTcly1fexts0eh5tj318a0x60xi.jpg)
 
 我们可以看到这里用户有两个软件，如果点开Firefox对应的Open，在服务器端的Firefox就会被开启，并且Firefox的GUI绘图指令就会被传到客户端。形成下面这个画面：
 
-![](pic/AntOS-FireFox.png)
+![](http://ww4.sinaimg.cn/large/006tKfTcly1fextrzw8r8j318810awha.jpg)
 
 如果点击的是gvim就可以获得Gvim的用户界面：
 
-![](pic/AntOS-gvim.png)
+![](http://ww1.sinaimg.cn/large/006tKfTcly1fextrqkphij318c10cwim.jpg)
 
 这里我们可以顺带看一下我们打开和使用软件的网络使用情况。我们使用Gvim为例，因为这个软件完全不需要联网，所以可以直接反映出AntOS远程传递软件画面对于网络的负载。
 
-![](pic/AntOS-Bandwide2.png)
+![](http://ww4.sinaimg.cn/large/006tKfTcly1fextryilynj314o06qjte.jpg)
 
 我们可以看到在日常的使用中，软件图像的传输对网络带宽的负载是非常小的。当软件的界面出现了大幅度的变化的时候带宽负载是比较大的，比如软件的开启。但是即便的gvim软件的开启，整个带宽负载也不超过80KB/s，在软件开启后，整个带宽更不超过40KB/s。
 
@@ -127,6 +127,10 @@ AntOS提供查看登陆归属地的功能，并且会检测异地登录，保护
 在打开软件之后，我们可以像操作传统操作系统的软件一样对软件进行一些点击使用。这个过程和我们使用传统操作系统的过程完全一致。
 
 ### 4.4、软件推荐
+
+AntOS拥有基于机器学习的软件推荐算法。
+
+![](http://ww4.sinaimg.cn/large/006tKfTcly1fextrz0c9kj30zi0o0q7c.jpg)
 
 #### 4.4.1、基于机器学习的软件推荐算法——建模
 
@@ -194,11 +198,11 @@ r = sum(sum(a.*b))/sqrt(sum(sum(a.*a))*sum(sum(b.*b)));
 
 软件推荐的使用非常简单。点击AntOS的Qt interface application的顶栏的“Recommendation”按钮，我们可以一个软件的智能推荐列表。
 
-![](pic/AntOS-top.png)
+![](http://ww4.sinaimg.cn/large/006tKfTcly1fextrzgo4qj317q07gjth.jpg)
 
 软件推荐界面如图所示：
 
-![](pic/AntOS-Recommendation.png)
+![](http://ww3.sinaimg.cn/large/006tKfTcly1fextrs12whj317u10an4k.jpg)
 
 
 
@@ -207,6 +211,8 @@ r = sum(sum(a.*b))/sqrt(sum(sum(a.*a))*sum(sum(b.*b)));
 当训练集不足的初期阶段，AntOS的的后台采用的是以带宽为第一优先级的负载均衡策略，集群控制服务器会定时收集各个软件提供服务器的带宽负载、CPU占用、以及磁盘占用，获得三个值。然后把这三个值按照6：2：2的权重加权平均，加权平均值最小的软件提供服务器可以将会挂在新来的用户。
 
 总体思路和《Mystic_Predictive Scheduling for GPU based Cloud Servers using Machine Learning》这篇文章一致，任何一个镜像里面的软件会使用的对应计算机资源包括，CPU核数、单个CPU负载、RAM、网络带宽、磁盘IO五个方面。我们通过用户的实际使用测出这五个数据中的其中几个数据，然后通过机器学习预测出剩下的几个。在数据集不够的时候我们会采用之前带宽优先级的负载均衡策略。
+
+![](http://ww3.sinaimg.cn/large/006tKfTcly1fextrsgmc8j30zi0o0q7c.jpg)
 
 #### 4.5.1、建模
 
@@ -242,7 +248,7 @@ $$
 
 AntOS可以在以网络见长，支持X11的硬件之上运行。具有成本低、便携的优点。
 
-![](pic/AntOS-Hardware.png)
+![](http://ww2.sinaimg.cn/large/006tKfTcly1fextrnxsr9j308k06a3yx.jpg)
 
 
 
@@ -270,7 +276,7 @@ Dockerfile的书写有一定的门槛，每个用户可以自己书写Dockerfile
 
 Zhen Du. AntOS: A novel solution of cloud-based OS based on X11 and Docker. CSCWD, 2017(还未刊登， 文章已被录用，会议还未开始)。
 
-![](pic/invite.png)
+![](http://ww3.sinaimg.cn/large/006tKfTcly1fextrw6rivj30w212kn2u.jpg)
 
 
 
